@@ -1,0 +1,42 @@
+log
+*.swp
+.DS_STORE
+
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+MANIFEST
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+cover
+nosetests.xml
+
+# Translations
+*.mo
+
+# verion file
+_version.py
+
+# built document files
+docs/_build
