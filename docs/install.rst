@@ -69,18 +69,16 @@ Cent 6 & Ubuntu
     sudo easy_install-3.3 pip
 
 
-Virtualenv
-==========
+__ http://brew.sh/
 
-強烈建議安裝
 
 .. code-block:: bash
 
-    sudo pip3 install virtualenv
+    brew install python3
 
 
 Virtualenv 使用方式
--------------------
+===================
 
 它的概念就是會在本機端建立一個資料夾作為一個 Python 環境（這邊以 ``LAB_SOS`` 為例），
 當你 source 這個環境的時候，virtualenv 會自動把 Python 相關的路徑都導到這個目錄底下，
@@ -89,14 +87,21 @@ Virtualenv 使用方式
 
 .. code-block:: bash
 
-    $ virtualenv --no-site-packages LAB_SOS
+    $ virtualenv-3.3 LAB_SOS       # 建立新的虛擬環境
+    Using base prefix '...'
+    New python executable in test_venv/bin/python3
+    Also creating executable in test_venv/bin/python
+    Installing setuptools, pip...done.
+
     $ source LAB_SOS/bin/activate  # 進入環境
-    (LAB_SOS)$ pip install -r requirements.txt
-    (LAB_SOS)$ which pip
-    LAB_SOS/bin/pip  # 路徑會被導到虛擬環境底下
-    (LAB_SOS)$ deactivate  # 脫離環境
-    $ which pip
-    /usr/local/bin/pip, /usr/bin/pip, ... # 系統的 pip，路徑視安裝而定
+
+    (LAB_SOS)$ which pip3          # 命令提示增加 (...) 來辨識　
+    /path/to/LAB_SOS/bin/pip3      # 此時相關的執行路徑會被導到虛擬環境底下
+
+    (LAB_SOS)$ deactivate          # 脫離環境
+
+    $ which pip3
+    # /usr/local/bin/pip3 or /usr/bin/pip3 為系統的 pip，路徑視安裝而定
 
 
 VirtualenvWrapper *(Optional)*
