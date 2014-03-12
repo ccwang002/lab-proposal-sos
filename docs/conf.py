@@ -41,8 +41,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Lab Plan SOS'
-copyright = '2013, Liang Bo Wang and all other lab members'
+project = 'Lab Proposal SOS'
+copyright = '2014, Liang Bo Wang and all lab members in Bioinfo and
+Biostat Core Lab, NTU CGM'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -92,11 +93,10 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-# if on Readthedocs.org, use their theme
+
+# on_rtd is whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-if on_rtd:
-    html_theme = 'default'
-else:
+if not on_rtd:  # only import and set the theme if we're building docs locally
     html_theme = 'nature'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -153,10 +153,10 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True
@@ -170,7 +170,7 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'LabPlanSOSdoc'
+htmlhelp_basename = 'LabProposalSOSdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -189,7 +189,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'LabPlanSOS.tex', 'Lab Plan SOS Documentation',
+  ('index', 'LabProposalSOS.tex', 'Lab Proposal SOS Documentation',
    'Liang Bo Wang and all other lab members', 'manual'),
 ]
 
@@ -219,7 +219,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'labplansos', 'Lab Plan SOS Documentation',
+    ('index', 'labproposalsos', 'Lab Proposal SOS Documentation',
      ['Liang Bo Wang and all other lab members'], 1)
 ]
 
@@ -233,8 +233,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'LabPlanSOS', 'Lab Plan SOS Documentation',
-   'Liang Bo Wang and all other lab members', 'LabPlanSOS', 'One line description of project.',
+  ('index', 'LabProposalSOS', 'Lab Proposal SOS Documentation',
+   'Liang Bo Wang and all other lab members', 'LabProposalSOS', 'One line description of project.',
    'Miscellaneous'),
 ]
 
