@@ -96,16 +96,27 @@ Virtualenv 使用方式
 __ http://www.ptt.cc/bbs/Python/M.1390807436.A.7F7.html
 
 VirtualenvWrapper *(Optional)*
-------------------------------
+==============================
 
-虛擬環境的目錄很可能會散落在系統四處，多起來有時不易管理。尤其是目錄往往與程式碼分開。Virtualenvwrapper 主要幫助簡化常用的 virtualenv 操作。
+虛擬環境的目錄很可能會散落在系統四處，多起來有時不易管理。
+尤其是目錄往往與程式碼分開。virtualenvwrapper 主要幫助簡化常用的 virtualenv 操作。
+
+.. note:: 以下示範的是一個最跨平台的做法，但在不同平台上可能有更好的解法。
+          同時也不一定要用 virtualenvwrapper，像 fish shell 的 `virtual fish`_、
+          或者 `pyenv-virtualenv`_ 與 `pyenv-virtualenvwrapper`_。
+
+.. _`virtual fish`: https://github.com/adambrenecki/virtualfish
+.. _`pyenv-virtualenv`: https://github.com/yyuu/pyenv-virtualenv
+.. _`pyenv-virtualenvwrapper`: https://github.com/yyuu/pyenv-virtualenvwrapper
+
+
+.. warning:: 這是在 3.3 版還沒普及的時候寫的，現在可能不用這麼麻煩了。
 
 .. code-block:: bash
 
-    sudo pip3 install virtualenvwrapper
+    pip3 install virtualenvwrapper
 
 Managing multiple environments is not easy. ``virtualenvwrapper`` helps to do this job.
-
 For supporting Python 3.x, after the installaion, one should add environemnt variable to the shell as follows::
 
     # For virtualenvwrapper settings
@@ -114,28 +125,23 @@ For supporting Python 3.x, after the installaion, one should add environemnt var
     export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv-3.3
     source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-They could be placed in somewhere like ``~/.bash_profile`` or ``~/.zshrc``, which path to Python 3.x and virtualenv should be properly set. For more configuration please visit their official site.
+They could be placed in somewhere like ``~/.bash_profile`` or ``~/.zshrc``,
+where the path to Python 3.x and virtualenv should be properly set.
+For more configuration please visit their official site.
 
-Usage is easy. Make a new virtualenv is easy.
-
-.. code-block:: bash
+Usage is easy. Make a new virtualenv is two words away.
+Folders for these virtual environment are created under  ``$WORKON_HOME``::
 
     mkvirtualenv LAB_SOS
 
-Options to virtualenv can be passed in the same way.
+Options to virtualenv can be passed directly to mkvirtualenv::
 
-.. code-block:: bash
+    mkvirtualenv --system-site-packages LAB_SOS_SYS
 
-    mkvirtualenv -p /usr/local/bin/python2.7 LAB_SOS-27
-
-Enter a virtual environment at any location
-
-.. code-block:: bash
+Activating a virtual environment at any location is trivial::
 
     workon LAB_SOS
 
-Leave the virtual environment in the same way.
-
-.. code-block:: bash
+Leave the virtual environment as usual::
 
     deactivate
