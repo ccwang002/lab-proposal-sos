@@ -5,22 +5,28 @@
 .. contents::
    :backlinks: none
 
-Python 3.3
-==========
+Python 版本與開發環境套件
+=========================
 
-我們這邊選擇自原始碼編譯。
+- Python 需要 3.3+
+- (setuptools), pip
+- virtualenv (強烈建議)
 
-Mac
----
 
-推薦使用 Homebrew 套件管理安裝。
+在 Ubuntu 13.10
+---------------
 
 .. code-block:: bash
 
-    brew install python3
+    sudo apt-get install python3.3-dev
+    sudo apt-get install python3-pip
+    sudo pip3 install virtualenv
 
-Cent 6
-------
+.. note:: Ubuntu 12.10+ 即可以使用 ``apt-get`` 方式安裝 3.3，但細節可能略為不同
+
+
+在 CentOS 6
+-----------
 
 .. code-block:: bash
 
@@ -33,41 +39,17 @@ Cent 6
     make
     sudo make install
 
-.. warning:: Cent 5 無法通過所有 Python 3 測試，需要自行更新 c lib，不建議安裝！
-
-Ubuntu
-------
-
-.. code-block:: bash
-
-    sudo apt-get install libncursesw5-dev libreadline-dev libssl-dev libgdbm-dev libc6-dev libsqlite3-dev tk-dev
-    wget http://python.org/ftp/python/3.3.2/Python-3.3.2.tar.xz
-    # 不能解壓縮 *.tar.xz 格式的話請另安裝 xz-utils
-    tar Jxvf Python-3.3.2.tar.xz
-    cd Python-3.3.2
-    ./configure
-    make
-    sudo make install
-
-.. note:: ``sudo apt-get python3`` 目前沒有測試，不敢保証。但這樣建議一定要使用 virtualenv
-
-
-Setuptools & Pip
-================
-
-Mac
----
-Homebrew 安裝完後就有 setuptools。
-
-Cent 6 & Ubuntu
----------------
-
-.. code-block:: bash
-
     wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
     sudo python3 ez_setup.py
     sudo easy_install-3.3 pip
 
+.. note:: CentOS 5 無法通過所有 Python 3 測試，需要自行更新 c lib，請搜尋相關文章
+
+
+在 Mac OSX 10.7+
+----------------
+
+推薦 `Homebrew`__ 套件管理安裝。
 
 __ http://brew.sh/
 
