@@ -42,8 +42,10 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Lab Proposal SOS'
-copyright = '2014, Liang Bo Wang and all lab members in Bioinfo and
-Biostat Core Lab, NTU CGM'
+copyright = (
+    '2014, Liang Bo Wang and all lab members'
+    ' in Bioinfo and Biostat Core Lab, NTU CGM'
+)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
