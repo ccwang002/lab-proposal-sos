@@ -8,7 +8,7 @@
 Python 版本與開發環境套件
 =========================
 
-- Python 需要 3.3+
+- Python 3.3+
 - (setuptools), pip
 - virtualenv (強烈建議)
 
@@ -30,18 +30,21 @@ Python 版本與開發環境套件
 
 .. code-block:: bash
 
-    sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel db4-devel
-    wget http://python.org/ftp/python/3.3.2/Python-3.3.2.tar.xz
-    # 不能解壓縮 *.tar.xz 格式的話請另安裝 xz-devel
-    tar Jxvf Python-3.3.2.tar.xz
-    cd Python-3.3.2
-    ./configure
+    # compile Python 3.3
+    sudo yum install openssl-devel ncurses-devel sqlite-devel\
+        readline-devel tk-devel db4-devel\
+        zlib-devel bzip2-devel xz-devel
+    wget http://python.org/ftp/python/3.3.2/Python-3.3.4.tar.xz
+    tar Jxvf Python-3.3.4.tar.xz
+    cd Python-3.3.4
+    ./configure --enable-shared
     make
     sudo make install
 
-    wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
-    sudo python3 ez_setup.py
+    # install pip, virtualenv
+    curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | sudo python3
     sudo easy_install-3.3 pip
+    sudo pip3 install virtualenv
 
 .. note:: CentOS 5 無法通過所有 Python 3 測試，需要自行更新 c lib，請搜尋相關文章
 
@@ -57,6 +60,7 @@ __ http://brew.sh/
 .. code-block:: bash
 
     brew install python3
+    pip3 install virtualenv
 
 
 Virtualenv 使用方式
@@ -86,10 +90,10 @@ Virtualenv 使用方式
     # /usr/local/bin/pip3 or /usr/bin/pip3 為系統的 pip，路徑視安裝而定
 
 
-使用 pyenv 快速切換不同 Python 版本開發
-=======================================
+pyenv 管理多版本 Python
+=======================
 
-用法同 rbenv。
+用法同 rbenv。方便做不同 Python 版本間切換與開發。
 
 .. seealso:: 小弟在 Python\@ptt1 的文章 `pyenv + Py3.4 + numpy 在 OSX 10.9`__
 
