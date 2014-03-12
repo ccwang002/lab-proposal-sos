@@ -86,6 +86,15 @@ Virtualenv 使用方式
     # /usr/local/bin/pip3 or /usr/bin/pip3 為系統的 pip，路徑視安裝而定
 
 
+使用 pyenv 快速切換不同 Python 版本開發
+=======================================
+
+用法同 rbenv。
+
+.. seealso:: 小弟在 Python\@ptt1 的文章 `pyenv + Py3.4 + numpy 在 OSX 10.9`__
+
+__ http://www.ptt.cc/bbs/Python/M.1390807436.A.7F7.html
+
 VirtualenvWrapper *(Optional)*
 ------------------------------
 
