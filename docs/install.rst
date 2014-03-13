@@ -157,3 +157,13 @@ Vargrant for Devlopment Environment
 ===================================
 
 計畫中，但不確定會不會做。
+
+
+安裝所需要的 Python 套件
+========================
+
+在剛剛建立好的虛擬環境中
+
+.. code-block:: bash
+
+    pip install -r requirements.txt
