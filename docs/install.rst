@@ -31,7 +31,7 @@ Python 版本與開發環境套件
     sudo yum install openssl-devel ncurses-devel sqlite-devel\
         readline-devel tk-devel db4-devel\
         zlib-devel bzip2-devel xz-devel
-    wget http://python.org/ftp/python/3.3.2/Python-3.3.4.tar.xz
+    wget http://python.org/ftp/python/3.3.4/Python-3.3.4.tar.xz
     tar Jxvf Python-3.3.4.tar.xz
     cd Python-3.3.4
     ./configure --enable-shared
