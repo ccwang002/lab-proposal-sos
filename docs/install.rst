@@ -131,9 +131,7 @@ Managing multiple environments at different folders is bothering.
         export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv-3.3
         source /usr/local/bin/virtualenvwrapper_lazy.sh
 
-    They could be placed in somewhere like ``~/.bash_profile`` or ``~/.zshrc``,
-    where the path to Python 3.x and virtualenv should be properly set.
-    For more configuration please visit their official site.
+    Place them in somewhere like ``~/.bash_profile`` or ``~/.zshrc``.
 
 Usage is easy. Make a new virtualenv is two words away.
 Folders for these virtual environment are created under  ``$WORKON_HOME``::
