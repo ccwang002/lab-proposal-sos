@@ -102,33 +102,38 @@ VirtualenvWrapper *(Optional)*
 虛擬環境的目錄很可能會散落在系統四處，多起來有時不易管理。
 尤其是目錄往往與程式碼分開。virtualenvwrapper 主要幫助簡化常用的 virtualenv 操作。
 
-.. note:: 以下示範的是一個最跨平台的做法，但在不同平台上可能有更好的解法。
-          同時也不一定要用 virtualenvwrapper，像 fish shell 的 `virtual fish`_、
-          或者 `pyenv-virtualenv`_ 與 `pyenv-virtualenvwrapper`_。
+.. note::
+    以下示範的是一個最跨平台的做法，但在不同平台上可能有更好的解法。
+    同時也不一定要用 virtualenvwrapper，像 fish shell 的 `virtual fish`_、
+    或者 `pyenv-virtualenv`_ 與 `pyenv-virtualenvwrapper`_。
 
 .. _`virtual fish`: https://github.com/adambrenecki/virtualfish
 .. _`pyenv-virtualenv`: https://github.com/yyuu/pyenv-virtualenv
 .. _`pyenv-virtualenvwrapper`: https://github.com/yyuu/pyenv-virtualenvwrapper
 
 
-.. warning:: 這是在 3.3 版還沒普及的時候寫的，現在可能不用這麼麻煩了。
-
 .. code-block:: bash
 
     pip3 install virtualenvwrapper
 
-Managing multiple environments is not easy. ``virtualenvwrapper`` helps to do this job.
-For supporting Python 3.x, after the installaion, one should add environemnt variable to the shell as follows::
+Managing multiple environments at different folders is bothering.
+``virtualenvwrapper`` helps to do this job.
 
-    # For virtualenvwrapper settings
-    export WORKON_HOME=$HOME/MyEnvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.3
-    export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv-3.3
-    source /usr/local/bin/virtualenvwrapper_lazy.sh
+.. note::
+    這是在 3.3 版還沒普及的時候寫的，現在可能不用這麼麻煩了。
 
-They could be placed in somewhere like ``~/.bash_profile`` or ``~/.zshrc``,
-where the path to Python 3.x and virtualenv should be properly set.
-For more configuration please visit their official site.
+    For supporting Python 3.x, after the installaion,
+    one should add environemnt variable to the shell as follows::
+
+        # For virtualenvwrapper settings
+        export WORKON_HOME=$HOME/MyEnvs
+        export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.3
+        export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv-3.3
+        source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+    They could be placed in somewhere like ``~/.bash_profile`` or ``~/.zshrc``,
+    where the path to Python 3.x and virtualenv should be properly set.
+    For more configuration please visit their official site.
 
 Usage is easy. Make a new virtualenv is two words away.
 Folders for these virtual environment are created under  ``$WORKON_HOME``::
