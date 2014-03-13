@@ -1,5 +1,5 @@
-Welcome to Lab Plan SOS's documentation!
-========================================
+Welcome to Lab Proposal SOS's documentation!
+============================================
 
 目錄：
 
