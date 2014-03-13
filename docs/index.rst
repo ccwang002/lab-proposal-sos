@@ -7,4 +7,4 @@ Welcome to Lab Proposal SOS's documentation!
    :maxdepth: 2
 
    install
-
+   arch
