@@ -6,5 +6,7 @@ Welcome to Lab Proposal SOS's documentation!
 .. toctree::
    :maxdepth: 2
 
-   install
+   setup-python
+   setup-pypkgs
+   local-env
    arch
