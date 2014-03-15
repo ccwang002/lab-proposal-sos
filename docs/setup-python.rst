@@ -1,9 +1,9 @@
-********
-環境安裝
-********
+***************
+Python 環境安裝
+***************
 
-Python 版本與開發環境套件
-=========================
+Python 版本與最基本套件
+=======================
 
 - Python 3.3+
 - (setuptools), pip
@@ -56,7 +56,7 @@ __ http://brew.sh/
 
 .. code-block:: bash
 
-    brew install python3
+    brew install python3 --with-brewed-openssl
     pip3 install virtualenv
 
 
@@ -86,15 +86,6 @@ Virtualenv 使用方式
     $ which pip3
     # /usr/local/bin/pip3 or /usr/bin/pip3 為系統的 pip，路徑視安裝而定
 
-
-pyenv 管理多版本 Python
-=======================
-
-用法同 rbenv。方便做不同 Python 版本間切換與開發。
-
-.. seealso:: 小弟在 Python\@ptt1 的文章 `pyenv + Py3.4 + numpy 在 OSX 10.9`__
-
-__ http://www.ptt.cc/bbs/Python/M.1390807436.A.7F7.html
 
 VirtualenvWrapper *(Optional)*
 ==============================
@@ -151,17 +142,44 @@ Leave the virtual environment as usual::
     deactivate
 
 
+pyenv 管理多版本 Python *(Optional)*
+====================================
+
+用法同 rbenv。方便做不同 Python 版本間切換與開發。如果沒有這個需求，請直接跳過此部份。
+
+OS X
+----
+
+.. seealso::
+    小弟在 Python\@ptt1 的文章 `pyenv + Py3.4 + numpy 在 OSX 10.9`__
+
+__ http://www.ptt.cc/bbs/Python/M.1390807436.A.7F7.html
+
+.. note::
+    在 OS X ，pyenv 預設會連接系統內建的 library 如 sqlite3 與 openssl。
+    但往往版本老舊，而且跟
+    ``brew install python3 --with-brewed-openssl``
+    的行為不同。雖然只是建立開發環境，仍請小心連結不同 library 帶來的差異。
+
+    建議在使用 pyenv 安裝時，加入以下環境變數：
+
+    .. code-block:: bash
+
+        epoxrt CONFIGURE_OPTS="CC=clang"
+        export CFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/sqlite/include"
+        export LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/sqlite/lib"
+
+    再進行上述的安裝過程。可以用以下指令來檢查連結 libray 的版本：
+
+    .. code-block:: bash
+
+        # openssl
+        `pyenv prefix 3.3.5`/bin/python -c "import ssl; print(ssl.OPENSSL_VERSION)"
+        # sqlite3
+        `pyenv prefix 3.3.5`/bin/python -c "import sqlite3 as s; print(s.sqlite_version_info)"
+
+
 Vargrant for Devlopment Environment
 ===================================
 
 計畫中，但不確定會不會做。
-
-
-安裝所需要的 Python 套件
-========================
-
-在剛剛建立好的虛擬環境中
-
-.. code-block:: bash
-
-    pip install -r requirements.txt
