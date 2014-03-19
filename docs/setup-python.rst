@@ -147,13 +147,14 @@ pyenv 管理多版本 Python *(Optional)*
 
 用法同 rbenv。方便做不同 Python 版本間切換與開發。如果沒有這個需求，請直接跳過此部份。
 
+.. seealso::
+    小弟在 Python\@ptt1 的文章 `[資訊] Python 3.4 released! + pyenv`__
+
+__ http://www.ptt.cc/bbs/Python/M.1395145892.A.435.html
+
+
 OS X
 ----
-
-.. seealso::
-    小弟在 Python\@ptt1 的文章 `pyenv + Py3.4 + numpy 在 OSX 10.9`__
-
-__ http://www.ptt.cc/bbs/Python/M.1390807436.A.7F7.html
 
 .. note::
     在 OS X ，pyenv 預設會連接系統內建的 library 如 sqlite3 與 openssl。
