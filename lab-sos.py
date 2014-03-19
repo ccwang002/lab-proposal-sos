@@ -1,13 +1,20 @@
 from flask import Flask, render_template, request
 from flask.ext.bootstrap import Bootstrap
+from flask.ext.wtf import Form
+from wtforms import StringField, DateTimeField, SubmitField
+from wtforms.validators import Required
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'dont let your boss see this'
 bootstrap = Bootstrap(app)
+
 
 @app.errorhandler(404)
 def page_not_found(e):
     path = request.path
     return render_template('404.html', path=path), 404
+
 
 @app.route('/')
 def index():
@@ -35,14 +42,20 @@ def proj_page(proj_id):
     return render_template('proj_page.html', proj_id=proj_id)
 
 
-@app.route('/new')
-def new_proj():
-    '''New project
+class ProjectForm(Form):
+    title = StringField('標題', validators=[Required()])
+    start_time = DateTimeField('開始執行')
+    time_span = StringField('執行期間')
+    submit = SubmitField('建立')
 
-    TODO:
-    - add new project
-    '''
-    return render_template('new_proj.html')
+
+@app.route('/new', methods=['GET', 'POST'])
+def new_proj():
+    '''New project'''
+    form = ProjectForm()
+    if form.validate_on_submit():
+        pass
+    return render_template('new_proj.html', form=form)
 
 
 # run flask

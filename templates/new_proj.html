@@ -1,3 +1,9 @@
-<h1>New Project</h1>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-<p>Some project info here</p>
+{% block page_content %}
+<div class="page-header">
+    <h1>新增計畫案</h1>
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}
