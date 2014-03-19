@@ -9,4 +9,5 @@ Welcome to Lab Proposal SOS's documentation!
    setup-python
    setup-pypkgs
    local-env
+   mockup
    arch
