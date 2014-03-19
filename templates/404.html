@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <p>你查詢的頁面：<code>{{ path }}</code></p>
+    {% if path.startswith('/proj/') %}
+    <p>科科，這個計畫案（<code>{{path[5:]}}</code>）找不到，洗洗睡囉</p>
+    {% else %}
+    <p>抱歉，找不到這頁囉 QAQ</p>
+    {% endif %}
+{% endblock %}

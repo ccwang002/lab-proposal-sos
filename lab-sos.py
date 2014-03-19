@@ -1,5 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask.ext.bootstrap import Bootstrap
+
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    path = request.path
+    return render_template('404.html', path=path), 404
 
 @app.route('/')
 def index():
