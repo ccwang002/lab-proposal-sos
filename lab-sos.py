@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.wtf import Form
+from flask.ext.script import Manager
 from wtforms import StringField, DateTimeField, SubmitField
 from wtforms.validators import Required
 
@@ -9,6 +10,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dont let your boss see this'
 app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 bootstrap = Bootstrap(app)
+manager = Manager(app)
 
 
 @app.errorhandler(404)
@@ -61,4 +63,4 @@ def new_proj():
 
 # run flask
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
