@@ -8,10 +8,18 @@
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="/static/style.css" media="all">
+<link rel="stylesheet" href="/static/narrowed.css" media="all">
 {% endblock %}
 
 {% block content %}
 <div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+        <h3 class="text-muted">Lab Project SOS</h3>
+      </div>
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
