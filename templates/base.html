@@ -5,6 +5,11 @@
 {% block metas %}
 {% endblock %}
 
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="/static/style.css" media="all">
+{% endblock %}
+
 {% block content %}
 <div class="container">
     {% block page_content %}{% endblock %}
