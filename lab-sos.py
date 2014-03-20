@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
 from flask.ext.bootstrap import Bootstrap
 from flask.ext.wtf import Form
 from flask.ext.script import Manager
-from wtforms import StringField, DateTimeField, SubmitField
+from wtforms import StringField, SubmitField
 from wtforms.validators import Required
 
 
@@ -25,7 +25,6 @@ def index():
 
     TODO:
     - list all project
-    - add new project page ``/new``
     - live search (combine with frontend framework)
     '''
     return render_template('index.html')
@@ -47,7 +46,7 @@ def proj_page(proj_id):
 
 class ProjectForm(Form):
     title = StringField('標題', validators=[Required()])
-    start_time = DateTimeField('開始執行')
+    start_time = StringField('開始執行')
     time_span = StringField('執行期間')
     submit = SubmitField('建立')
 
@@ -57,7 +56,8 @@ def new_proj():
     '''New project'''
     form = ProjectForm()
     if form.validate_on_submit():
-        pass
+        flash('New Project has been created.', category='new-proj')
+        return redirect(url_for('index'))
     return render_template('new_proj.html', form=form)
 
 

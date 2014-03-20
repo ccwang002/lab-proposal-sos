@@ -2,13 +2,15 @@
 {% block page_content %}
 <div class="row">
     <div class="col-xs-10">
-    <div class="input-group input-group-lg">
-        <span class="input-group-addon glyphicon glyphicon-search"></span>
-        <input type="text" class="form-control" placeholder="標籤、專案名稱">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon glyphicon glyphicon-search"></span>
+            <input type="text" class="form-control" placeholder="標籤、專案名稱">
+        </div>
     </div>
-    </div>
-    <div class="col-xs-2"><button type="button" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-plus"></span>
-    </button></div>
+    <div class="col-xs-2">
+        <a class="btn btn-primary btn-lg" href="/new" role="button">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+</button></div>
 </div>
 {% endblock %}
