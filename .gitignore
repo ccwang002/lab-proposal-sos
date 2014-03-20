@@ -40,3 +40,6 @@ _version.py
 
 # built document files
 docs/_build
+
+# local DB
+*.sqlite
