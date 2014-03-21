@@ -18,6 +18,7 @@ app.config['BOOTSTRAP_SERVE_LOCAL'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = (
     'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 )
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 bootstrap = Bootstrap(app)
 manager = Manager(app)
 db = SQLAlchemy(app)
@@ -47,7 +48,8 @@ def index():
     - list all project
     - live search (combine with frontend framework)
     '''
-    return render_template('index.html')
+    proj_list = Project.query.all()
+    return render_template('index.html', proj_list=proj_list)
 
 
 @app.route('/proj/<proj_id>')
@@ -61,7 +63,8 @@ def proj_page(proj_id):
     - modify file
     - delete file
     '''
-    return render_template('proj_page.html', proj_id=proj_id)
+    proj = Project.query.get_or_404(proj_id)
+    return render_template('proj_page.html', proj=proj)
 
 
 class ProjectForm(Form):
@@ -76,7 +79,16 @@ def new_proj():
     '''New project'''
     form = ProjectForm()
     if form.validate_on_submit():
-        flash('New Project has been created.', category='new-proj')
+        flash(
+            'New Project {} has been created.'.format(form.title.data),
+            category='new-proj'
+        )
+        proj = Project(
+            title=form.title.data,
+            start_time=form.start_time.data,
+            time_span=form.time_span.data
+        )
+        db.session.add(proj)
         return redirect(url_for('index'))
     return render_template('new_proj.html', form=form)
 

@@ -11,6 +11,26 @@
         <a class="btn btn-primary btn-lg" href="/new" role="button">
             <span class="glyphicon glyphicon-plus"></span>
         </a>
-</button></div>
+    </div>
+</div><!-- row -->
+<div id="proj-list" class="row">
+<div class="col-xs-12">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>標題</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for proj in proj_list %}
+        <tr>
+            <td>{{ proj.id }}</td>
+            <td>{{ proj.title }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
 </div>
 {% endblock %}

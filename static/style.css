@@ -1,3 +1,7 @@
 body {
 background-image: url(/static/subtly_patterns/skulls/skulls.png);
 }
+
+#proj-list {
+    margin: 30px 0 30px;
+}
