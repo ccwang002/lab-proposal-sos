@@ -15,7 +15,7 @@
 <div id="main-container" class="container">
     <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="#">Home</a></li>
+          <li {% if request.path == "/" %}class="active"{% endif %}><a href="/">Home</a></li>
           <li><a href="#">About</a></li>
         </ul>
         <h2 class="text-muted">Lab Project SOS</h3>
