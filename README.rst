@@ -36,5 +36,8 @@ MIT License
 Release Note
 ============
 
+- 2014.03.22 `single_file`_: minimal version
 - 2014.03.12 begin first alpha development
 - 2013.10.23 initiate project
+
+.. _single_file: https://github.com/ccwang002/lab-proposal-sos/releases/tag/single_file
