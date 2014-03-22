@@ -10,6 +10,9 @@ from wtforms.validators import Required
 import os
 from flask.ext.sqlalchemy import SQLAlchemy
 
+from datetime import datetime
+from flask.ext.moment import Moment
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
@@ -20,6 +23,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = (
 )
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 manager = Manager(app)
 db = SQLAlchemy(app)
 
@@ -28,7 +32,7 @@ class Project(db.Model):
     __tablename__ = 'projs'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Unicode(256), index=True)
-    mod_time = db.Column(db.Unicode(128))
+    mod_time = db.Column(db.DateTime)
     start_time = db.Column(db.Unicode(128), nullable=True)
     time_span = db.Column(db.Unicode(128), nullable=True)
 
@@ -57,7 +61,6 @@ def proj_page(proj_id):
     '''Project page
 
     TODO:
-    - show project information
     - modify project info  ``/proj/<id>/edit``
     - upload file
     - modify file
@@ -86,7 +89,8 @@ def new_proj():
         proj = Project(
             title=form.title.data,
             start_time=form.start_time.data,
-            time_span=form.time_span.data
+            time_span=form.time_span.data,
+            mod_time=datetime.utcnow()
         )
         db.session.add(proj)
         return redirect(url_for('index'))

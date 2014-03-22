@@ -22,6 +22,7 @@
         <tr>
             <th>#</th>
             <th>標題</th>
+            <th>最後修改</th>
         </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
         <tr>
             <td>{{ proj.id }}</td>
             <td><a href="{{ url_for('proj_page', proj_id=proj.id) }}">{{ proj.title }}</a></td>
+            <td>{{ moment(proj.mod_time).fromNow(refresh=True) }}</td>
         </tr>
 {% endfor %}
     </tbody>
