@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 {% block page_content %}
 <div id="func-bar" class="row">
-    <form class="navbar-form" role="search">
-    <div class="col-xs-10">
+    <form class="navbar-form search" role="search">
     <div class="input-group input-group-lg">
         <span class="input-group-addon glyphicon glyphicon-search"></span>
         <input type="text" class="form-control" placeholder="標籤、專案名稱">
     </div>
-    </div>
-    <div class="col-xs-2 text-center">
-        <a class="btn btn-primary btn-lg" href="{{ url_for("new_proj") }}" role="button">
-            <span class="glyphicon glyphicon-plus"></span>
-        </a>
-    </div>
     </form>
+    <a class="btn btn-primary btn-lg" href="{{ url_for("new_proj") }}" role="button">
+            <span class="glyphicon glyphicon-plus"></span>
+    </a>
 </div><!-- row -->
 <div id="proj-list" class="row">
 <div class="col-xs-12">
