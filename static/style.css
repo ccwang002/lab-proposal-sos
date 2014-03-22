@@ -1,5 +1,10 @@
 body {
-background-image: url(/static/subtly_patterns/skulls/skulls.png);
+    background-image: url(/static/subtly_patterns/skulls/skulls.png);
+}
+
+#main-container {
+    padding-bottom: 50px;
+    background-color: hsla(0, 100%, 100%, 0.7);
 }
 
 #proj-list {
