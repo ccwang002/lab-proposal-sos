@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-from flask.ext.script import Manager
+from flask.ext.script import Manager, Shell
 
 from flask.ext.bootstrap import Bootstrap
 
@@ -27,6 +27,13 @@ moment = Moment(app)
 manager = Manager(app)
 db = SQLAlchemy(app)
 
+def make_shell_context():
+    var_in_shell = 'app db Project'
+    defined_vars = globals()
+    return {k: defined_vars[k] for k in var_in_shell.split()}
+
+# load db when activate shell
+manager.add_command("shell", Shell(make_context=make_shell_context))
 
 class Project(db.Model):
     __tablename__ = 'projs'
